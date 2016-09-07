@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>Calculator</title>
@@ -6,14 +6,14 @@
 </head>
 <body class="body">
 
-    <div class="calculator demo">
+    <div id="calculator" class="calculator demo">
         <div class="u4 display">
             <div class="display-inner"><div class="display-text" data-bind="text: display"></div></div>
         </div>
         <button id="calculator-button-c" class="u1 button button-red" data-bind="click: clear">c</button>
         <button id="calculator-button-backspace" class="u1 button button-backspace button-gray" data-bind="click: backspace">&#x21e4;</button>
         <button id="calculator-button-negate" class="u1 button button-gray" data-bind="click: negate">&#xb1;</button>
-        <button id="calculator-button-÷" class="u1 button button-gray" data-bind="click: operator">÷</button>
+        <button id="calculator-button-/" class="u1 button button-gray" data-bind="click: operator">&#xf7;</button>
         <button id="calculator-button-7" class="u1 button button-gray" data-bind="click: number">7</button>
         <button id="calculator-button-8" class="u1 button button-gray" data-bind="click: number">8</button>
         <button id="calculator-button-9" class="u1 button button-gray" data-bind="click: number">9</button>
@@ -28,11 +28,28 @@
         <button id="calculator-button-+" class="u1 button button-gray" data-bind="click: operator">+</button>
         <button id="calculator-button-0" class="u2 button button-gray" data-bind="click: number">0</button>
         <button id="calculator-button-." class="u1 button button-gray" data-bind="click: number">.</button>
-        <button id="calculator-button-=" class="u1 button button-blue" data-bind="click: operator">=</button>            
+        <button id="calculator-button-=" class="u1 button button-blue" data-bind="click: operator">=</button>
     </div>
+
+	<div>
+		<div class="u1"></div>
+		<button id="flip-button" class="u2 button button-blue" onclick="flip_calculator();">FLIP</button>
+	</div>
 
     <script src="knockout-2.1.0.js"></script>
     <script src="calculator.js"></script>
+    <script>
+    	var rotated = false;
+
+    	function flip_calculator() {
+	    	var calculator = document.getElementById("calculator");
+	    	rotated = !rotated;
+	    	calculator.style.MozTransform = rotated ? "rotate(180deg)" : "";
+	    	calculator.style.webkitTransform = rotated ? "rotate(180deg)" : "";
+	    	calculator.style.transform = rotated ? "rotate(180deg)" : "";
+	    }
+
+    </script>
 
 </body>
 </html>

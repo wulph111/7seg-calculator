@@ -1,3 +1,17 @@
+# Flippable LCD 7-segment Display Calculator
+
+Forked from Ideaviate/html5-css3-js-calculator on 9/7/2016
+
+- Applied 7-segment font from http://www.keshikan.net/fonts-e.html
+
+- Added "FLIP" button that flips the calculator upside-down so you can read any words you've created
+
+- Visual tweaks to round corners and button font size
+
+- My text editor mangled the "divided-by" symbol so I changed it to "/" within the code and specified the HTML entity designator &#xf7; for display.
+
+--------------------------------------
+
 # HTML5, CSS3 and JavaScript calculator
 
 This was a small project we did just to play around with some of the 

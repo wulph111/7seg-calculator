@@ -1,4 +1,4 @@
-﻿
+
 /*  ################# 
  *	### CSS Reset ###
  *  ################# */
@@ -16,7 +16,7 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-    margin: 0;
+    margin: 5;
     padding: 0;
     border: 0;
     font-size: 100%;
@@ -55,6 +55,12 @@ table {
  *	### Calculator styles ###
  *  ######################### */
 
+@font-face {
+  font-family: "sevenSeg";
+  src: url("DSEG7Classic-Regular.ttf");
+}
+
+
 /* Grid units */
 .u1,
 .u2,
@@ -77,9 +83,9 @@ table {
 }
 
 .calculator {
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	border-radius: 5px;
+	-moz-border-radius: 12px;
+	-webkit-border-radius: 12px;
+	border-radius: 12px;
 	-moz-box-shadow: inset 0px 1px #7b839b;
 	-webkit-box-shadow: inset 0px 1px #7b839b;
 	box-shadow: inset 0px 1px #7b839b;
@@ -88,25 +94,29 @@ table {
 	float: left;
 	padding: 6px;
 	width: 184px;
+	-moz-transition: -moz-transform 500ms;
+	-webkit-transition: -webkit-transform 500ms;
+	transition: transform 500ms;
 }
 
 .display {
-	-moz-border-radius: 3px;
-	-webkit-border-radius: 3px;
-	border-radius: 3px;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
 	-moz-box-shadow: inset 0 1px 1px #0A0B0D, 0px 1px #5E6370;
 	-webkit-box-shadow: inset 0 1px 1px #0A0B0D, 0px 1px #5E6370;
 	box-shadow: inset 0 1px 1px #0A0B0D, 0px 1px #5E6370;
 	-webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-	background-color: #17181E;
+	background-color: #CCD103;
 	border: 1px solid #181A20;
 	padding: 0 10px;
 	text-align: right;
 }
 .display-text {
-	color: #fff;
+	font-family: sevenSeg;
+	color: #4F5462;
 	font-size: 22px;
 	line-height: 42px;
 	overflow: hidden;
@@ -119,9 +129,9 @@ table {
     overflow: hidden;
 }
 .button {
-	-moz-border-radius: 3px;
-	-webkit-border-radius: 3px;
-	border-radius: 3px;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
 	-khtml-user-select: none;
@@ -133,7 +143,7 @@ table {
 	cursor: pointer;
 	float: left;
 	font-family: Arial, Helvetica, sans-serif;
-	font-size: 12px;
+	font-size: 18px;
 	font-weight: bold;
 	line-height: 25px;
 	padding: 0 8px;

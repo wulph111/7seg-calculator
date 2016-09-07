@@ -1,21 +1,21 @@
-﻿/*
+/*
  * Copyright (C) 2012 Ideaviate AB
- * 
- * Permission is hereby granted, free of charge, to any person obtaining a copy 
- * of this software and associated documentation files (the "Software"), to deal 
- * in the Software without restriction, including without limitation the rights 
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell 
- * copies of the Software, and to permit persons to whom the Software is 
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- * 
- * The above copyright notice and this permission notice shall be included in all 
+ *
+ * The above copyright notice and this permission notice shall be included in all
  * copies or substantial portions of the Software.
- * 
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR 
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE 
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, 
- * WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+ * WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
@@ -32,7 +32,7 @@ var Calculator = function () {
     self.isShowingResult = ko.observable(false);
 
     // Callback for each number button
-    self.number = function (item, event) {   
+    self.number = function (item, event) {
         var button = event.target.innerText || event.target.textContent;
 
         // If a result has been shown, make sure we
@@ -48,7 +48,7 @@ var Calculator = function () {
 
         // Make sure that we remove the default 0 shown on the display
         // when the user press the first number button
-        var newValue = (self.display() === "0" && button != decimalMark) ? button : self.display() + button; 
+        var newValue = (self.display() === "0" && button != decimalMark) ? button : self.display() + button;
         // Update the display
         self.display(newValue);
     };
@@ -67,10 +67,10 @@ var Calculator = function () {
                 case "-":
                     sum = sum - parseFloat(self.display(), 10);
                     break;
-                case "x":
+                case "x": case "*":
                     sum = sum * parseFloat(self.display(), 10);
                     break;
-                case "÷":
+                case "\u00f7": case "/":
                     sum = sum / parseFloat(self.display(), 10);
                     break;
                 default:
@@ -85,7 +85,7 @@ var Calculator = function () {
 
         // Make sure we don't try to calculate with the equal sign
         prevOperator = (button === "=") ? null : button;
-        // Always set the calculator into showing result state 
+        // Always set the calculator into showing result state
         // after an operator button has been pressed
         self.isShowingResult(true);
     };
@@ -138,8 +138,8 @@ ko.applyBindings(new Calculator());
         48: "0", 49: "1", 50: "2", 51: "3", 52: "4", 53: "5", 54: "6",
         55: "7", 56: "8", 57: "9", 96: "0", 97: "1", 98: "2", 99: "3",
         100: "4", 101: "5", 102: "6", 103: "7", 104: "8", 105: "9",
-        106: "x", 107: "+", 109: "-", 110: ".", 111: "÷", 8: "backspace",
-        13: "=", 46: "c", 67: "c"
+        106: "x", 107: "+", 109: "-", 110: ".", 111: "/", 8: "backspace",
+        13: "=", 46: "c", 67: "c", 27: "c"
     };
 
     // Helper function to fire an event on an element
